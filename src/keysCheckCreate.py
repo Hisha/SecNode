@@ -1,4 +1,4 @@
-from Crypto.PublicKey import RSA
+from Cryptodome.PublicKey import RSA
 from os.path import exists
 
 keySize = 4096
