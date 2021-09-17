@@ -1,6 +1,7 @@
 from configReader import configReader
 from getExtIP import getExtIP
 from keysCheckCreate import keysCheckCreate
+from encryptIP import encryptIP
 #import socket
 import logging.config
 
@@ -13,10 +14,16 @@ keysCheckCreate()
 
 try:
     serverIP = getExtIP()
-    logger.info("External IP : %s", serverIP.ip)
+    logger.info("Received external IP address.")
+        
 except:
     logger.error("No internet access found.")
 
+try:
+    encryptIP(serverIP.ip)   
+     
+except:
+    logger.error("Tried but failed to encrypt for some reason.")
 
 #serverPort = 13122
 

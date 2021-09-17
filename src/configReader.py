@@ -8,6 +8,8 @@ class configReader():
             self.rsaKeySize = parsed['rsaKeySize']
             self.privateKeyFile = parsed['privateKeyFile']
             self.publicKeyFile = parsed['publicKeyFile']
+            self.peerFileName = parsed['peerFileName']
+            self.serverPort = parsed['serverPort']
         
     def getLogFileName(self):
         return self.logFileName   
@@ -20,3 +22,9 @@ class configReader():
     
     def getPublicKeyFile(self):
         return self.publicKeyFile
+    
+    def getPeerFileName(self):
+        return self.peerFileName
+    
+    def getServerPort(self):
+        return self.serverPort
