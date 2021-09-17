@@ -1,14 +1,21 @@
-#import socket
+from configReader import configReader
 from getExtIP import getExtIP
 from keysCheckCreate import keysCheckCreate
+#import socket
+import logging.config
+
+conReader = configReader()
+logFileName = conReader.getLogFileName()
+logging.config.fileConfig(logFileName, disable_existing_loggers=False)
+logger = logging.getLogger(__name__)
 
 keysCheckCreate()
 
 try:
     serverIP = getExtIP()
-    print("External IP : ", serverIP.ip)
+    logger.info("External IP : %s", serverIP.ip)
 except:
-    print("No internet access found.")
+    logger.error("No internet access found.")
 
 
 #serverPort = 13122

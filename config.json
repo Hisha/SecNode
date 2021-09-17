@@ -1,0 +1,6 @@
+{
+    "logFileName": "logging.conf",
+    "rsaKeySize": 4096,
+    "privateKeyFile": "private.pem",
+    "publicKeyFile": "public.pem"
+}
