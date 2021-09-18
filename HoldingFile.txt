@@ -1,0 +1,56 @@
+from getExtIP import getExtIP
+from encryptString import encryptString
+from decryptString import decryptString
+from appendStringToFile import appendStringToFile
+from readFileToString import readFileToString
+
+peerList = conReader.getPeerFileName()
+
+try:
+    serverIP = getExtIP()
+    logger.info("Received external IP address %s", serverIP.ip)
+        
+except:
+    logger.error("No internet access found.") 
+    
+    
+    
+    
+
+try:
+    encrytIPAddy = encryptString(serverIP.ip)
+    encryptedIPAddy = encrytIPAddy.encryptedString   
+    logger.info("Encrypted IP: %s", encryptedIPAddy)
+     
+except:
+    logger.error("Tried but failed to encrypt for some reason.")
+    
+    
+    
+    
+   
+try:
+    appendStringToFile(peerList,encryptedIPAddy)
+except:
+    logger.error("Tried but failed to append string to file.")   
+    
+    
+    
+     
+    
+try:
+    ipFromFile = readFileToString(peerList)
+except:
+    logger.error("Tried but failed to read string from file.")    
+    
+    
+    
+    
+    
+try:
+    decryptIPAddy = decryptString(ipFromFile.readString)
+    decryptedIPAddy = decryptIPAddy.decryptedString
+    logger.info("Decrypted IP: %s", decryptedIPAddy)
+
+except:
+    logger.error("Tried but failed to decrypt for some reason.")
